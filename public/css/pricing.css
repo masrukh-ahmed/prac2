@@ -12,26 +12,55 @@
 }
 
 body {
-  background-image: url("/resources/d4c528fb-eb72-4f56-b6ee-1f60747a5213.jpg");
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   color: white;
   font-size: 0.9rem;
   font-weight: 300;
-  backdrop-filter: blur(40px);
+}
+.container {
+  width: 100vw;
+  margin: 0rem auto;
+  position: relative;
+}
+.background {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      transparent,
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("/resources/d4c528fb-eb72-4f56-b6ee-1f60747a5213.jpg");
+  width: 100vw;
+  height: 100vh;
+  margin: 0rem auto;
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  filter: blur(30px);
+  transform: scale(2);
+  z-index: -1;
 }
 
-.container {
-  width: 95vw;
-  margin: 0rem auto;
+.contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
 .navbar {
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +76,32 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex: 2;
+}
+.nav-links p {
+  transition: all 0.25s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  outline: 1px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+.nav-links p:hover {
+  outline: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: var(--btn-primary-bg);
+  background-image:
+    radial-gradient(
+      93% 87% at 87% 89%,
+      rgba(0, 0, 0, 0.23) 0%,
+      transparent 86.18%
+    ),
+    radial-gradient(
+      66% 87% at 26% 20%,
+      rgba(255, 255, 255, 0.41) 0%,
+      rgba(255, 255, 255, 0) 69.79%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  box-shadow:
+    0px 0px 31px rgba(123, 0, 255, 0.379),
+    2px 19px 21px rgba(0, 0, 0, 0.2);
 }
 .navbar .company {
   display: flex;
@@ -75,6 +130,7 @@ body {
   align-self: center;
 }
 .navbar .get-started-btn button {
+  cursor: pointer;
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   border: none;
@@ -277,7 +333,7 @@ body {
   margin-bottom: 0rem;
   transition: all 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(100px);
+  backdrop-filter: brightness(120%);
   margin: 0rem 1rem;
 }
 .card:hover {
@@ -326,7 +382,6 @@ body {
   background-image: linear-gradient(to bottom, rgb(192, 150, 255), white);
   color: transparent;
   background-clip: text;
-  transition: all 0.25s ease-in-out;
 }
 .card .sub-price {
   display: flex;
